@@ -1,8 +1,23 @@
-# Campo Minado em C
+# Campo Minado Recursivo em C
 
-Implementação do jogo **Campo Minado** em linguagem C, desenvolvida como atividade acadêmica da disciplina de **Estrutura de Dados**.
+Implementação do jogo **Campo Minado Recursivo** em linguagem C pura, desenvolvida para a **Atividade Avaliativa 1** da disciplina de **Estrutura de Dados**.
 
 O projeto utiliza matrizes bidimensionais para representar o tabuleiro, geração pseudoaleatória para posicionar as minas e recursividade para abrir automaticamente regiões formadas por casas sem minas próximas.
+
+## Identificação do projeto
+
+| Informação | Descrição |
+|---|---|
+| **Nome do game** | Campo Minado Recursivo |
+| **Tema** | Aplicação da recursividade em um jogo |
+| **Linguagem** | C pura |
+| **Metodologia ativa** | Aprendizagem por Projeto |
+| **Atividade** | Atividade Avaliativa 1 |
+| **Período de entrega** | 15 a 22 de setembro de 2026 |
+| **Valor** | 1,5 ponto |
+| **Forma de avaliação** | Apresentação em sala e respostas às perguntas do professor |
+
+O grupo possui **cinco integrantes**, atendendo ao limite estabelecido de quatro a seis acadêmicos.
 
 ## Acadêmicos
 
@@ -20,6 +35,17 @@ O projeto utiliza matrizes bidimensionais para representar o tabuleiro, geraçã
 - **Disciplina:** Estrutura de Dados
 - **Professor:** Prof. Dr. Clayton Kossoski
 - **Período:** 2º semestre de 2026
+
+## Atendimento aos requisitos da atividade
+
+| Requisito | Como foi atendido |
+|---|---|
+| Aplicar recursividade em um jogo | A função `abrirCasa()` chama a si mesma para revelar as casas vizinhas de uma região vazia. |
+| Utilizar C pura | O projeto foi desenvolvido em C e utiliza somente as bibliotecas padrão `stdio.h`, `stdlib.h` e `time.h`. |
+| Equipe entre 4 e 6 integrantes | O grupo é formado pelos cinco acadêmicos relacionados neste README. |
+| Código-fonte comentado | O arquivo `campo_minado.c` contém comentários que identificam as principais etapas do algoritmo. |
+| Repositório público no GitHub | O repositório deve permanecer público para permitir o acesso ao código e ao README durante a avaliação. |
+| Instruções de execução | As etapas de compilação e execução estão documentadas neste arquivo. |
 
 ## Objetivo
 
@@ -229,9 +255,28 @@ Esses contextos são mantidos na pilha de chamadas. Quando uma condição de par
 
 A matriz `aberto` complementa esse processo ao registrar todas as posições já visitadas, inclusive aquelas cujas chamadas já foram finalizadas.
 
+## Estrutura esperada do repositório
+
+```text
+campo-minado-recursivo/
+├── campo_minado.c
+└── README.md
+```
+
+- `campo_minado.c`: código-fonte comentado do jogo;
+- `README.md`: descrição, funcionamento e instruções de execução.
+
+> Caso o arquivo-fonte tenha outro nome no repositório, os comandos de compilação devem ser ajustados para usar o nome correspondente.
+
 ## Compilação e execução
 
-É necessário possuir um compilador C, como o GCC.
+O programa não utiliza bibliotecas externas. É necessário apenas possuir um compilador compatível com C, como o GCC.
+
+### Pré-requisitos
+
+- GCC, MinGW, MSYS2 ou outro compilador C;
+- Terminal, prompt de comando, ou VSCODE;
+- Arquivo `campo_minado.c` salvo no diretório do projeto.
 
 ### Windows com GCC/MinGW ou MSYS2
 
@@ -246,6 +291,26 @@ gcc campo_minado.c -o campo_minado.exe
 gcc campo_minado.c -o campo_minado
 ./campo_minado
 ```
+
+## Como jogar
+
+1. Execute o programa pelo terminal;
+2. Informe a quantidade de linhas, entre `2` e `20`;
+3. Informe a quantidade de colunas, entre `2` e `20`;
+4. Escolha a quantidade de minas, respeitando o limite exibido;
+5. Digite o número da linha e da coluna da casa que deseja abrir;
+6. Continue escolhendo posições até abrir todas as casas seguras ou encontrar uma mina.
+
+A primeira jogada válida é protegida. As minas são geradas somente depois dessa escolha e a coordenada informada não pode receber uma mina.
+
+### Símbolos apresentados
+
+| Símbolo | Significado |
+|:---:|---|
+| `#` | Casa fechada |
+| Espaço vazio | Casa aberta sem minas vizinhas |
+| `1` a `8` | Quantidade de minas nas posições vizinhas |
+| `*` | Mina revelada no encerramento da partida |
 
 ## Exemplo de uso
 
